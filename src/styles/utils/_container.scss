@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+%container {
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+
+  @include bp(med) {
+    display: grid;
+    grid-template-columns:
+      1fr
+      minmax(0, calc(3.5rem + 66ch))
+      2fr
+      1fr;
+  }
+
+  @include bp(large) {
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+  }
+
+  @include bp(mega) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.container {
+  @extend %container;
+  > * {
+    grid-column: 2 / span 2;
+  }
+
+  &--full {
+    @extend %container;
+    > * {
+      grid-column: 1 / span 4;
+    }
+  }
+}

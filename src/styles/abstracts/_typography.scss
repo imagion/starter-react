@@ -1,0 +1,45 @@
+@use 'sass:map';
+
+// Typography composables
+// ===============
+
+// Font maps
+// ---------------
+// prettier-ignore
+$font-families: (
+  'serif': ('lora', serif),
+  'sans': ('open sans', sans-serif),
+  'code': ('fira mono', monospace)
+);
+
+$type-scale: (
+  small: (
+    300: 1rem,
+    400: 1.125rem,
+    500: 1.563rem,
+    600: 1.953rem,
+    700: 2.441rem,
+    800: 3.052rem,
+  ),
+  wide: (
+    300: 1rem,
+    400: 1.25rem,
+    500: 2rem,
+    600: 2.827rem,
+    700: 4rem,
+    800: 5.653rem,
+  ),
+);
+
+// Font Family mixins
+// -----------
+@mixin ff($family, $map: $font-families) {
+  font-family: map.get($map, $family);
+}
+
+@mixin wrap-words {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}

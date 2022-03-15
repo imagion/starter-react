@@ -1,0 +1,40 @@
+// FONTS
+// ---------
+// Inclide static fonts
+// ==========
+
+@mixin font($fname, $fweight, $fstyle, $furl, $fvar: false) {
+  @font-face {
+    font-family: $fname;
+    font-weight: $fweight;
+    font-style: $fstyle;
+    @if $fvar {
+      src: url('../assets/fonts/' + $furl + '.ttf') format('truetype');
+    } @else {
+      src: url('../assets/fonts/' + $furl + '.woff2') format('woff2');
+    }
+    font-display: swap;
+  }
+}
+
+@include font('lobster', 400, normal, 'LobsterRegular', $fvar: false);
+
+@include font('lora', 100 900, normal, 'LoraVariableFont', $fvar: true);
+@include font('lora', 100 900, italic, 'LoraItalicVariableFont', $fvar: true);
+
+@include font(
+  'open sans',
+  100 900,
+  normal,
+  'OpenSansVariableFont',
+  $fvar: true
+);
+@include font(
+  'open sans',
+  100 900,
+  italic,
+  'OpenSansItalicVariableFont',
+  $fvar: true
+);
+
+@include font('fira mono', 400, normal, 'FiraMonoRegular', $fvar: false);

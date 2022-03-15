@@ -1,0 +1,85 @@
+@use '../abstracts' as *;
+@use '../vendor' as *;
+@use '../abstracts' as *;
+@use 'sass:map';
+
+// Base Typography Declarations
+// ===============
+// prettier-ignore
+* {
+  font-variation-settings:
+    'wght' var(--font-weight, 375),
+    'wdth' var(--font-width, 100);
+}
+
+body {
+  @include ff(sans);
+  font-size: 1rem;
+  color: var(--clr-neutral-700);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  --font-weight: 700;
+  --font-width: 80;
+  font-stretch: 100%;
+  color: var(--clr-neutral-800);
+  line-height: 1.1;
+}
+
+h1 {
+  --font-weight: 900;
+}
+
+.title {
+  font-size: clamp(var(--fs-600), calc(1rem + 5vw), 5rem);
+}
+
+h1,
+.h1 {
+  font-size: --fs-800;
+}
+
+h2,
+.h2 {
+  --flow-spacer: 1.5em;
+  font-size: --fs-700;
+}
+h3,
+.h3 {
+  --flow-spacer: 1.5em;
+  font-size: --fs-600;
+}
+
+h4,
+.h4 {
+  font-size: --fs-500;
+}
+
+small,
+.text-small {
+  font-size: var(--fs-300);
+}
+
+strong {
+  --font-weight: 500;
+  font-weight: normal;
+}
+
+a {
+  color: var(--clr, var(--clr-primary-400));
+
+  &:hover,
+  &:focus {
+    color: var(--clr-primary-400);
+    text-decoration: none;
+  }
+}
+
+p:not([class]),
+ul:not([class]),
+li:not([class]) {
+  max-width: 60ch;
+}
