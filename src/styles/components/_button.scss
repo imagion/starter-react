@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+%btn {
+  @include ff(sans);
+  display: inline-block;
+  padding: 0.95em 1.75em 0.85em;
+  box-shadow: 0 0.125em 0.5em rgba(black, 0.15);
+  font-size: var(--font-size-300);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  // prettier-ignore
+  transition: border 0.25s ease,
+              color 0.25s ease,
+              background-color 0.25s ease;
+}
+
+.btn {
+  --background-color: var(--color-primary-400);
+  --text-color: var(--color-neutral-100);
+  @extend %btn;
+  @include btn-filled;
+
+  &:hover,
+  &:focus,
+  &:active {
+    --background-color: var(--color-neutral-100);
+    --text-color: var(--color-primary-400);
+    @include btn-filled;
+  }
+
+  &--ghost {
+    --border-color: var(--color-primary-400);
+    --text-color: var(--color-primary-400);
+    @extend %btn;
+    @include btn-ghost;
+
+    &:hover,
+    &:focus,
+    &:active {
+      --background-color: var(--color-primary-400);
+      --text-color: var(--color-neutral-100);
+      @include btn-filled;
+    }
+  }
+
+  &-inverse {
+    --background-color: var(--color-neutral-100);
+    --text-color: var(--color-primary-400);
+    @extend %btn;
+    @include btn-filled;
+
+    &:hover,
+    &:focus,
+    &:active {
+      --background-color: var(--color-primary-400);
+      --text-color: var(--color-neutral-100);
+      @include btn-filled;
+    }
+
+    &--ghost {
+      --border-color: var(--color-neutral-100);
+      --text-color: var(--color-neutral-100);
+      @extend %btn;
+      @include btn-ghost;
+
+      &:hover,
+      &:focus,
+      &:active {
+        --background-color: var(--color-neutral-100);
+        --text-color: var(--color-primary-400);
+        @include btn-filled;
+      }
+    }
+  }
+}

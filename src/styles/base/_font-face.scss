@@ -3,7 +3,7 @@
 // Inclide static fonts
 // ==========
 
-@mixin font($fname, $fweight, $fstyle, $furl, $fvar: false) {
+@mixin font($fname, $fweight, $furl, $fstyle: normal, $fvar: true) {
   @font-face {
     font-family: $fname;
     font-weight: $fweight;
@@ -17,24 +17,10 @@
   }
 }
 
-@include font('lobster', 400, normal, 'LobsterRegular', $fvar: false);
+@include font('Lobster', 400, 'LobsterRegular', $fvar: false);
 
-@include font('lora', 100 900, normal, 'LoraVariableFont', $fvar: true);
-@include font('lora', 100 900, italic, 'LoraItalicVariableFont', $fvar: true);
+@include font('Lora', 100 900, 'LoraVariableFont');
 
-@include font(
-  'open sans',
-  100 900,
-  normal,
-  'OpenSansVariableFont',
-  $fvar: true
-);
-@include font(
-  'open sans',
-  100 900,
-  italic,
-  'OpenSansItalicVariableFont',
-  $fvar: true
-);
+@include font('Open Sans', 100 900, 'OpenSansVariableFont');
 
-@include font('fira mono', 400, normal, 'FiraMonoRegular', $fvar: false);
+@include font('Fira Mono', 400, 'FiraMonoRegular', $fvar: false);

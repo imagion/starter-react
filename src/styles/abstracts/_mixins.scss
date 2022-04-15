@@ -1,33 +1,10 @@
-@use 'sass:map';
 @use '../vendor' as *;
 @use 'breakpoints' as *;
+@use 'typos' as *;
+@use 'sass:map';
 
 // MIXINS
 // ==========
-
-// Clearfix
-// --------
-@mixin cf {
-  &::after {
-    display: table;
-    clear: both;
-    content: ' ';
-  }
-}
-
-// Font Smoothing
-// --------------
-// Mixin to turn on font smoothing, especially for light text on dark
-// background for OSX
-@mixin font-smoothing($value: on) {
-  @if $value == on {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  } @else {
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: auto;
-  }
-}
 
 // Mappy Breakpoint shortcuts
 // ----------
@@ -44,7 +21,7 @@
 }
 
 // Flex helper to make evenly-spaced grid items
-// ==========
+// ----------
 @mixin eq-flex-parent($gutter, $num-children) {
   display: flex;
   justify-content: space-between;
@@ -95,7 +72,7 @@
   }
 }
 
-// SELECTION
+// Selection
 // ---------
 // Changes selected color and background color
 @mixin selection($bg-color, $text-color) {
@@ -105,17 +82,157 @@
   }
 }
 
+// Typography mixins
+// ==========
+
+// Font Family mixins
+// -----------
+@mixin ff($family, $map: $font-families) {
+  font-family: map.get($map, $family);
+}
+
+// Font Smoothing
+// --------------
+// Mixin to turn on font smoothing, especially for light text on dark
+// background for OSX
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
 // Text overflow
 // -------------
 // Requires inline-block or block for proper styling
 @mixin text-overflow {
-  text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-// Z-index
-// -------
-@mixin zi($location) {
-  z-index: map.get($zindex, $location); // ! missing map
+// Links
+// ==========
+
+@mixin link-underline($background-color, $text-color) {
+  background-image: linear-gradient($text-color, $text-color);
+  background-repeat: repeat-x;
+  background-size: 1px 1px;
+}
+
+// prettier-ignore
+@mixin link-shadow ($background-color) {
+  text-shadow: .03em 0 $background-color,
+              -.03em 0 $background-color,
+              0 .03em $background-color,
+              0 -.03em $background-color,
+              .06em 0 $background-color,
+              -.06em 0 $background-color,
+              .09em 0 $background-color,
+              -.09em 0 $background-color,
+              .12em 0 $background-color,
+              -.12em 0 $background-color,
+              .15em 0 $background-color,
+              -.15em 0 $background-color;
+}
+
+@mixin remove-link-underline {
+  background-image: none;
+  text-shadow: none;
+}
+
+@mixin active-link {
+  &::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin inactive-link {
+  &::after {
+    opacity: 0;
+    transform: translateY(-150%);
+  }
+}
+
+// Buttons
+// ==========
+
+@mixin btn-ghost(
+  $border-color: var(--border-color, var(--color-primary-400)),
+  $text-color: var(--text-color, var(--color-primary-400)),
+  $border-width: 2px,
+  $border-style: solid
+) {
+  border: $border-width $border-style $border-color;
+  color: $text-color;
+  background-color: transparent;
+}
+
+@mixin btn-filled(
+  $background-color: var(--background-color, var(--color-primary-400)),
+  $text-color: var(--text-color, var(--color-neutral-100)),
+  $border-width: 2px,
+  $border-style: solid
+) {
+  border: $border-width $border-style $background-color;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+// Shape mixins
+// ==========
+
+// Square
+// ------
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+// Circle
+// ------
+@mixin circle($width) {
+  width: $width;
+  height: $width;
+  border-radius: 100%;
+}
+
+// Triangle
+// --------
+// We use this to create isosceles triangles
+// - $triangle-size -      Used to set border-size. No default, set a px or em
+//                         size.
+// - $triangle-color -     Used to set border-color which makes up triangle.
+//                         No default
+// - $triangle-direction - Used to determine which direction triangle points.
+//                         Options: top, bottom, left, right
+@mixin triangle($triangle-size, $triangle-color, $triangle-direction) {
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset $triangle-size;
+  content: '';
+
+  @if $triangle-direction == top {
+    border-top-style: solid;
+    border-color: $triangle-color transparent transparent;
+  }
+
+  @if $triangle-direction == bottom {
+    border-bottom-style: solid;
+    border-color: transparent transparent $triangle-color;
+  }
+
+  @if $triangle-direction == left {
+    border-left-style: solid;
+    border-color: transparent transparent transparent $triangle-color;
+  }
+
+  @if $triangle-direction == right {
+    border-right-style: solid;
+    border-color: transparent $triangle-color transparent transparent;
+  }
 }

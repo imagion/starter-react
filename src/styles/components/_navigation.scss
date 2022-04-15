@@ -1,0 +1,117 @@
+@use '../abstracts' as *;
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  &__logo {
+    --font-weight: 600;
+    font-size: 2rem;
+    color: var(--color-neutral-800);
+    text-transform: uppercase;
+  }
+
+  &__toggle {
+    position: relative;
+    cursor: pointer;
+
+    * {
+      display: block;
+      width: 2.25rem;
+      height: 0.25rem;
+      border-radius: 1rem;
+      background-color: var(--color-neutral-800);
+      transition: all ease-in 0.25s;
+
+      + * {
+        margin-top: 0.5rem;
+      }
+    }
+
+    &.open {
+      :nth-child(1) {
+        transform: rotate(45deg) translate(8px, 9px);
+      }
+      :nth-child(2) {
+        width: 0;
+        opacity: 0;
+      }
+      :nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -9px);
+      }
+    }
+
+    @include bp(med) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: -50rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1.5rem 1.5rem 18.5rem;
+    background-color: var(--color-neutral-700);
+    transition: top 0.5s ease;
+
+    &.open {
+      top: 100%;
+    }
+
+    @include bp(med) {
+      position: revert;
+      width: revert;
+      padding: revert;
+      background: revert;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include bp(med) {
+      flex-direction: revert;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+
+    @include bp(med) {
+      & + & {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+
+  &__link {
+    --color: var(--color-neutral-300);
+    position: relative;
+    display: inline-block;
+    padding: 0.5em 0.5em;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 0.15s ease-in-out;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-neutral-900);
+    }
+
+    @include bp(med) {
+      --color: var(--color-neutral-700);
+      padding: revert;
+      font-size: revert;
+    }
+  }
+}

@@ -15,7 +15,7 @@
 body {
   @include ff(sans);
   font-size: 1rem;
-  color: var(--clr-neutral-700);
+  color: var(--color-neutral-700);
 }
 
 h1,
@@ -25,7 +25,7 @@ h4 {
   --font-weight: 700;
   --font-width: 80;
   font-stretch: 100%;
-  color: var(--clr-neutral-800);
+  color: var(--color-neutral-800);
   line-height: 1.1;
 }
 
@@ -34,33 +34,33 @@ h1 {
 }
 
 .title {
-  font-size: clamp(var(--fs-600), calc(1rem + 5vw), 5rem);
+  font-size: clamp(var(--font-size-600), calc(1rem + 5vw), 5rem);
 }
 
 h1,
 .h1 {
-  font-size: --fs-800;
+  font-size: --font-size-800;
 }
 
 h2,
 .h2 {
   --flow-spacer: 1.5em;
-  font-size: --fs-700;
+  font-size: --font-size-700;
 }
 h3,
 .h3 {
   --flow-spacer: 1.5em;
-  font-size: --fs-600;
+  font-size: --font-size-600;
 }
 
 h4,
 .h4 {
-  font-size: --fs-500;
+  font-size: --font-size-500;
 }
 
 small,
 .text-small {
-  font-size: var(--fs-300);
+  font-size: var(--font-size-300);
 }
 
 strong {
@@ -69,11 +69,11 @@ strong {
 }
 
 a {
-  color: var(--clr, var(--clr-primary-400));
+  color: var(--color, var(--color-primary-400));
 
   &:hover,
   &:focus {
-    color: var(--clr-primary-400);
+    color: var(--color-primary-400);
     text-decoration: none;
   }
 }

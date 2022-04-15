@@ -10,45 +10,42 @@ export default function Header() {
   }
 
   return (
-    <header>
+    <header className='header'>
       <div className='container--full'>
-        <div className='main-nav'>
+        <nav className='main-nav'>
           <a href='#' className='main-nav__logo'>
             Logo
           </a>
-          <nav>
-            <ul className={'main-nav__list' + (open ? ' open' : '')}>
+          <button className='main-nav__toggle'>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div className='main-nav__menu'>
+            <ul className='main-nav__list'>
               <li className='main-nav__item'>
                 <a href='#' className='main-nav__link'>
                   Home
                 </a>
               </li>
-              <li>
+              <li className='main-nav__item'>
                 <a href='#' className='main-nav__link'>
                   About
                 </a>
               </li>
-              <li>
+              <li className='main-nav__item'>
                 <a href='#' className='main-nav__link'>
                   Team
                 </a>
               </li>
-              <li>
+              <li className='main-nav__item'>
                 <a href='#' className='main-nav__link'>
                   Contact
                 </a>
               </li>
             </ul>
-          </nav>
-          <button
-            className={'main-nav__toggle' + (open ? ' open' : '')}
-            onClick={handleClick}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+          </div>
+        </nav>
       </div>
     </header>
   )
