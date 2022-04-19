@@ -163,23 +163,23 @@
 
 @mixin btn-ghost(
   $border-color: var(--border-color, var(--color-primary-400)),
-  $text-color: var(--text-color, var(--color-primary-400)),
+  $color: var(--color, var(--color-primary-400)),
   $border-width: 2px,
   $border-style: solid
 ) {
   border: $border-width $border-style $border-color;
-  color: $text-color;
+  color: $color;
   background-color: transparent;
 }
 
 @mixin btn-filled(
   $background-color: var(--background-color, var(--color-primary-400)),
-  $text-color: var(--text-color, var(--color-neutral-100)),
+  $color: var(--color, var(--color-neutral-100)),
   $border-width: 2px,
   $border-style: solid
 ) {
   border: $border-width $border-style $background-color;
-  color: $text-color;
+  color: $color;
   background-color: $background-color;
 }
 

@@ -20,7 +20,7 @@
 
 .btn {
   --background-color: var(--color-primary-400);
-  --text-color: var(--color-neutral-100);
+  --color: var(--color-neutral-100);
   @extend %btn;
   @include btn-filled;
 
@@ -28,28 +28,13 @@
   &:focus,
   &:active {
     --background-color: var(--color-neutral-100);
-    --text-color: var(--color-primary-400);
+    --color: var(--color-primary-400);
     @include btn-filled;
-  }
-
-  &--ghost {
-    --border-color: var(--color-primary-400);
-    --text-color: var(--color-primary-400);
-    @extend %btn;
-    @include btn-ghost;
-
-    &:hover,
-    &:focus,
-    &:active {
-      --background-color: var(--color-primary-400);
-      --text-color: var(--color-neutral-100);
-      @include btn-filled;
-    }
   }
 
   &-inverse {
     --background-color: var(--color-neutral-100);
-    --text-color: var(--color-primary-400);
+    --color: var(--color-primary-400);
     @extend %btn;
     @include btn-filled;
 
@@ -57,23 +42,8 @@
     &:focus,
     &:active {
       --background-color: var(--color-primary-400);
-      --text-color: var(--color-neutral-100);
+      --color: var(--color-neutral-100);
       @include btn-filled;
-    }
-
-    &--ghost {
-      --border-color: var(--color-neutral-100);
-      --text-color: var(--color-neutral-100);
-      @extend %btn;
-      @include btn-ghost;
-
-      &:hover,
-      &:focus,
-      &:active {
-        --background-color: var(--color-neutral-100);
-        --text-color: var(--color-primary-400);
-        @include btn-filled;
-      }
     }
   }
 }
