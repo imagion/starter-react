@@ -1,235 +1,42 @@
 @use '../abstracts' as *;
 
-%toggle {
-  + .toggle-button {
-    position: relative;
-    display: block;
-    width: 4em;
-    height: 2em;
-    outline: none;
-    cursor: pointer;
-    user-select: none;
-    &:after,
-    &:before {
-      position: relative;
-      display: block;
-      width: 50%;
-      height: 100%;
-      content: '';
-    }
-
-    &:after {
-      left: 0;
-    }
-
-    &:before {
-      display: none;
-    }
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:checked + .toggle-button:after {
-    left: 50%;
-  }
+.toggle--light {
+  @include toggle-light;
+  // + .toggle-button {
+  // --background-color: #f0f0f0;
+  // --toggler-color: #fff;
+  // --background-color-checked: #9fd6ae;
+  // }
 }
-
-.toggle {
-  &--light {
-    @extend %toggle;
-    + .toggle-button {
-      padding: 2px;
-      background-color: #f0f0f0;
-      border-radius: 2em;
-      transition: background-color 0.4s ease;
-      &:after {
-        background-color: #fff;
-        border-radius: 50%;
-        transition: left 0.2s ease;
-      }
-    }
-
-    &:checked + .toggle-button {
-      background-color: #9fd6ae;
-    }
-  }
-
-  &--flat {
-    @extend %toggle;
-    + .toggle-button {
-      padding: 2px;
-      background-color: #fff;
-      border: 4px solid #f2f2f2;
-      border-radius: 2em;
-      transition: all 0.2s ease;
-      &:after {
-        background-color: #f2f2f2;
-        border-radius: 1em;
-        content: '';
-        transition: all 0.2s ease;
-      }
-    }
-
-    &:checked + .toggle-button {
-      border: 4px solid #7fc6a6;
-      &:after {
-        left: 50%;
-        background-color: #7fc6a6;
-      }
-    }
-  }
-
-  &--ios {
-    @extend %toggle;
-    + .toggle-button {
-      padding: 2px;
-      background-color: #fbfbfb;
-      border: 1px solid #e8eae9;
-      border-radius: 2em;
-      transition: all 0.4s ease;
-      &:after {
-        background-color: #fbfbfb;
-        border-radius: 2em;
-        // prettier-ignore
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1),
-                    0 4px 0 rgba(0, 0, 0, 0.08);
-        // prettier-ignore
-        transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                    padding 0.3s ease,
-                    margin 0.3s ease;
-      }
-
-      &:active {
-        box-shadow: inset 0 0 0 2em #e8eae9;
-        &:after {
-          padding-right: 0.8em;
-        }
-      }
-    }
-
-    &:checked + .toggle-button {
-      background-color: #86d993;
-      &:active {
-        box-shadow: none;
-        &:after {
-          margin-left: -0.8em;
-        }
-      }
-    }
-  }
-
-  &--skewed {
-    @extend %toggle;
-    + .toggle-button {
-      overflow: hidden;
-      background-color: #888;
-      font-family: sans-serif;
-      transition: background-color 0.2s ease;
-      backface-visibility: hidden;
-      transform: skew(-10deg);
-      &:after,
-      &:before {
-        position: absolute;
-        display: inline-block;
-        width: 100%;
-        font-weight: bold;
-        color: #fff;
-        line-height: 2em;
-        text-align: center;
-        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
-        transition: all 0.2s ease;
-        transform: skew(10deg);
-      }
-
-      &:after {
-        left: 100%;
-        content: attr(data-toggle-on);
-      }
-
-      &:before {
-        left: 0;
-        content: attr(data-toggle-off);
-      }
-
-      &:active {
-        background-color: #888;
-        &:before {
-          left: -10%;
-        }
-      }
-    }
-
-    &:checked + .toggle-button {
-      background-color: #86d993;
-      &:before {
-        left: -100%;
-      }
-
-      &:after {
-        left: 0;
-      }
-
-      &:active:after {
-        left: 10%;
-      }
-    }
-  }
-
-  &--flip {
-    @extend %toggle;
-    + .toggle-button {
-      padding: 2px;
-      font-family: sans-serif;
-      transition: all 0.2s ease;
-      perspective: 100px;
-      &:after,
-      &:before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: inline-block;
-        width: 100%;
-        border-radius: 4px;
-        font-weight: bold;
-        color: #fff;
-        line-height: 2em;
-        text-align: center;
-        transition: all 0.4s ease;
-        backface-visibility: hidden;
-      }
-
-      &:after {
-        background-color: #02c66f;
-        content: attr(data-toggle-on);
-        transform: rotateY(-180deg);
-      }
-
-      &:before {
-        background-color: #ff3a19;
-        content: attr(data-toggle-off);
-      }
-
-      &:active:before {
-        transform: rotateY(-20deg);
-      }
-    }
-
-    &:checked + .toggle-button {
-      &:before {
-        transform: rotateY(180deg);
-      }
-
-      &:after {
-        left: 0;
-        background-color: #7fc6a6;
-        transform: rotateY(0);
-      }
-
-      &:active:after {
-        transform: rotateY(20deg);
-      }
-    }
-  }
+.toggle--flat {
+  @include toggle-flat;
+  // + .toggle-button {
+  // --background-color: #f0f0f0;
+  // --toggler-color: #fff;
+  // --toggler-color-checked: #7fc6a6;
+  // }
+}
+.toggle--ios {
+  @include toggle-ios;
+  // + .toggle-button {
+  // --background-color: #fbfbfb;
+  // --border-color: #e8eae9;
+  // --background-color-checked: #86d993;
+  // }
+}
+.toggle--skewed {
+  @include toggle-skewed;
+  // + .toggle-button {
+  // --background-color: #888;
+  // --color: #fff;
+  // --background-color-checked: #86d993;
+  // }
+}
+.toggle--flip {
+  @include toggle-flip;
+  // + .toggle-button {
+  //   --background-color: #ff3a19;
+  //   --color: #fff;
+  //   --background-color-checked: #7fc6a6;
+  // }
 }

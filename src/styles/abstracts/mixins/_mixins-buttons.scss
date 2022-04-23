@@ -1,0 +1,105 @@
+@use 'mixins-typography' as *;
+
+// Buttons
+// ==========
+%btn {
+  @include ff(sans);
+  display: inline-block;
+  padding: 0.95em 1.75em 0.85em;
+  box-shadow: 0 0.125em 0.5em rgba(black, 0.15);
+  font-size: var(--font-size-300);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  // prettier-ignore
+  transition: border 0.25s ease,
+              color 0.25s ease,
+              background-color 0.25s ease;
+}
+
+@mixin btn-gg(
+  $border-color: var(--border-color, var(--color-primary-400)),
+  $color: var(--color, var(--color-primary-400)),
+  $border-color-active: var(--border-color-active, var(--color-primary-100)),
+  $color-active: var(--color-active, var(--color-primary-100)),
+  $border-width: var(--border-width, 2px),
+  $border-style: var(--border-style, solid)
+) {
+  @extend %btn;
+  background-color: transparent;
+  border: $border-width $border-style $border-color;
+  color: $color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+    border: $border-width $border-style $border-color-active;
+    color: $color-active;
+  }
+}
+
+@mixin btn-gf(
+  $border-color: var(--border-color, var(--color-primary-400)),
+  $color: var(--color, var(--color-primary-400)),
+  $background-color-active: var(--background-color, var(--color-primary-400)),
+  $color-active: var(--color-active, var(--color-primary-100)),
+  $border-width: var(--border-width, 2px),
+  $border-style: var(--border-style, solid)
+) {
+  @extend %btn;
+  background-color: transparent;
+  border: $border-width $border-style $border-color;
+  color: $color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $background-color-active;
+    border: $border-width $border-style $background-color-active;
+    color: $color-active;
+  }
+}
+
+@mixin btn-ff(
+  $background-color: var(--background-color, var(--color-primary-400)),
+  $color: var(--color, var(--color-neutral-100)),
+  $border-width: var(--border-width, 2px),
+  $border-style: var(--border-style, solid),
+  $background-color-active: var(--border-color-active, var(--color-neutral-100)),
+  $color-active: var(--color-active, var(--color-primary-400))
+) {
+  @extend %btn;
+  background-color: $background-color;
+  border: $border-width $border-style $background-color;
+  color: $color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $background-color-active;
+    border: $border-width $border-style $background-color-active;
+    color: $color-active;
+  }
+}
+
+@mixin btn-fg(
+  $background-color: var(--background-color, var(--color-primary-400)),
+  $color: var(--color, var(--color-neutral-100)),
+  $border-width: var(--border-width, 2px),
+  $border-style: var(--border-style, solid),
+  $border-color-active: var(--border-color-active, var(--color-primary-400)),
+  $color-active: var(--color-active, var(--color-primary-400))
+) {
+  @extend %btn;
+  background-color: $background-color;
+  border: $border-width $border-style $background-color;
+  color: $color;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+    border: $border-width $border-style $border-color-active;
+    color: $color-active;
+  }
+}
