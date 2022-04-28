@@ -1,21 +1,28 @@
 @use '../abstracts' as *;
 
+// Root CSS custom properties
+// ==========
+
 :root {
   @each $color, $shade in $colors {
     @each $prop, $value in $shade {
-      --color-#{$color}-#{$prop}: #{$value};
+      --c-#{$color}-#{$prop}: #{$value};
     }
+  }
+
+  @each $family, $value in $font-families {
+    --ff-#{$family}: #{$value};
   }
 
   @each $screen-size, $property in $type-scale {
     @if $screen-size == small {
       @each $prop, $value in $property {
-        --font-size-#{$prop}: #{$value};
+        --fs-#{$prop}: #{$value};
       }
     } @else {
       @include bp(small) {
         @each $prop, $value in $property {
-          --font-size-#{$prop}: #{$value};
+          --fs-#{$prop}: #{$value};
         }
       }
     }

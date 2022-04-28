@@ -8,21 +8,23 @@
 
   &__logo {
     --font-weight: 600;
+    --c: var(--c-neutral-800);
+    --c-ha: var(--c-neutral-800);
     font-size: 2rem;
-    color: var(--color-neutral-800);
     text-transform: uppercase;
   }
 
   &__toggle {
     position: relative;
     cursor: pointer;
+    z-index: 2;
 
     * {
       display: block;
       width: 2.25rem;
       height: 0.25rem;
       border-radius: 1rem;
-      background-color: var(--color-neutral-800);
+      background-color: var(--c-neutral-800);
       transition: all ease-in 0.25s;
 
       + * {
@@ -50,24 +52,26 @@
 
   &__menu {
     position: absolute;
-    top: -50rem;
-    left: 0;
+    top: 0;
+    right: -100%;
+    z-index: 1;
     display: flex;
     justify-content: center;
-    width: 100%;
-    padding: 1.5rem 1.5rem 18.5rem;
-    background-color: var(--color-neutral-700);
-    transition: top 0.5s ease;
+    padding: 6rem 3.5rem 1.5rem;
+    height: 100vh;
+    background-color: var(--c-primary-200);
+    transition: right 0.5s ease;
 
     &.open {
-      top: 100%;
+      right: 0;
     }
 
     @include bp(med) {
       position: revert;
-      width: revert;
       padding: revert;
-      background: revert;
+      background-color: revert;
+      right: revert;
+      height: revert;
     }
   }
 
@@ -89,29 +93,6 @@
       & + & {
         margin-left: 1.5rem;
       }
-    }
-  }
-
-  &__link {
-    --color: var(--color-neutral-300);
-    position: relative;
-    display: inline-block;
-    padding: 0.5em 0.5em;
-    font-size: 1.25rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: color 0.15s ease-in-out;
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: var(--color-neutral-900);
-    }
-
-    @include bp(med) {
-      --color: var(--color-neutral-700);
-      padding: revert;
-      font-size: revert;
     }
   }
 }

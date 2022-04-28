@@ -17,10 +17,4 @@
   }
 }
 
-@include font('Lobster', 400, 'LobsterRegular', $fvar: false);
-
-@include font('Lora', 100 900, 'LoraVariableFont');
-
 @include font('Open Sans', 100 900, 'OpenSansVariableFont');
-
-@include font('Fira Mono', 400, 'FiraMonoRegular', $fvar: false);

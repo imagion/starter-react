@@ -1,11 +1,17 @@
+@use 'sass:list';
+
 // Typography composables
 // ===============
 
+$custom-font: 'Open Sans';
+$system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
+  Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+
 // prettier-ignore
 $font-families: (
-  'sans': ('Open Sans', sans-serif),
-  'serif': ('Lora', serif),
-  'code': ('Fira Mono', monospace)
+  'sans': list.append($custom-font, $system, $separator: comma),
+  'mono': (SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+  'Courier New', monospace)
 );
 
 $type-scale: (

@@ -4,12 +4,6 @@
 // Typography mixins
 // ==========
 
-// Font Family mixins
-// -----------
-@mixin ff($family, $map: $font-families) {
-  font-family: map.get($map, $family);
-}
-
 // Font Smoothing
 // --------------
 // Mixin to turn on font smoothing, especially for light text on dark

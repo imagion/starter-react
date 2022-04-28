@@ -1,41 +1,38 @@
 @use '../abstracts' as *;
 
-.btn-gg {
-  // --border-color: var(--color-primary-400);
-  // --color: var(--color-primary-400);
-  // --border-color-active: var(--color-primary-100);
-  // --color-active: var(--color-primary-100);
-  // --border-width: 2px;
-  // --border-style: solid;
-  @include btn-gg;
+%btn {
+  font-family: var(--ff-sans);
+  display: inline-block;
+  padding: 0.95em 1.75em 0.85em;
+  background-color: var(--bgc, var(--c-primary-400));
+  border-width: var(--bd-w, 2px);
+  border-style: var(--bd-s, solid);
+  border-color: var(--bd-c, var(--c-primary-400));
+  box-shadow: 0 0.125em 0.5em rgba(black, 0.15);
+  font-size: var(--fs-300);
+  font-weight: 700;
+  color: var(--text, var(--c-neutral-100));
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  // prettier-ignore
+  transition: border 0.25s ease,
+              color 0.25s ease,
+              background-color 0.25s ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--bgc-hfa, var(--c-neutral-100));
+    border-width: var(--bd-w-hfa, 2px);
+    border-style: var(--bd-s-hfa, solid);
+    border-color: var(--bd-c-hfa, var(--c-primary-400));
+    color: var(--text-hfa, var(--c-primary-400));
+  }
 }
 
-.btn-ff {
-  // --background-color: var(--color-primary-400);
-  // --color: var(--color-neutral-100);
-  // --background-color-active: var(--color-neutral-100);
-  // --color-active: var(--color-primary-400);
-  // --border-width: 2px;
-  // --border-style: solid;
-  @include btn-ff;
-}
-
-.btn-gf {
-  // --border-color: var(--color-primary-400);
-  // --color: var(--color-primary-400);
-  // --background-color-active: var(--color-primary-400);
-  // --color-active: var(--color-primary-100);
-  // --border-width: 2px;
-  // --border-style: solid;
-  @include btn-gf;
-}
-
-.btn-fg {
-  // --background-color: var(--color-primary-400);
-  // --color: var(--color-neutral-100);
-  // --border-color-active: var(--color-primary-400);
-  // --color-active: var(--color-primary-400);
-  // --border-width: 2px;
-  // --border-style: solid;
-  @include btn-fg;
+.btn {
+  @extend %btn;
 }
