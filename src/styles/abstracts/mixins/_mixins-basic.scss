@@ -18,25 +18,6 @@
   }
 }
 
-// Flex helper to make evenly-spaced grid items
-// ----------
-@mixin eq-flex-parent($gutter, $num-children) {
-  display: flex;
-  justify-content: space-between;
-  margin-right: -1 * $gutter / 2;
-  margin-left: -1 * $gutter / 2;
-
-  > * {
-    flex-basis: calc(#{100% / $num-children} - #{$gutter});
-    margin-right: $gutter / 2;
-    margin-left: $gutter / 2;
-  }
-}
-
-@mixin eq-flex-child($gutter, $percent) {
-  flex-basis: calc(#{$percent} - #{$gutter});
-}
-
 // Is-invisible
 // ------------
 // Makes element invisible, but still accessible

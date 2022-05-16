@@ -1,20 +1,15 @@
 // FONTS
-// ---------
+
 // Inclide static fonts
+// ---------
+// https://github.com/googlefonts/opensans/tree/main/fonts/variable
 // ==========
 
-@mixin font($fname, $fweight, $furl, $fstyle: normal, $fvar: true) {
-  @font-face {
-    font-family: $fname;
-    font-weight: $fweight;
-    font-style: $fstyle;
-    @if $fvar {
-      src: url('../assets/fonts/' + $furl + '.ttf') format('truetype');
-    } @else {
-      src: url('../assets/fonts/' + $furl + '.woff2') format('woff2');
-    }
-    font-display: swap;
-  }
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/OpenSansVariableFont.ttf') format('truetype');
 }
-
-@include font('Open Sans', 100 900, 'OpenSansVariableFont');

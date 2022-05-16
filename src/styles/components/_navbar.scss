@@ -1,10 +1,11 @@
 @use '../abstracts' as *;
 
-.main-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+.navbar {
+  &-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__logo {
     --font-weight: 600;
@@ -16,16 +17,16 @@
 
   &__toggle {
     position: relative;
+    z-index: 200;
     cursor: pointer;
-    z-index: 2;
 
     * {
       display: block;
       width: 2.25rem;
       height: 0.25rem;
-      border-radius: 1rem;
       background-color: var(--c-neutral-800);
-      transition: all ease-in 0.25s;
+      border-radius: 1rem;
+      transition: transform 0.25s ease-in-out, opacity 0.15s;
 
       + * {
         margin-top: 0.5rem;
@@ -50,32 +51,36 @@
     }
   }
 
-  &__menu {
-    position: absolute;
+  &-main {
+    position: fixed;
     top: 0;
-    right: -100%;
-    z-index: 1;
+    right: 0;
+    z-index: 100;
     display: flex;
-    justify-content: center;
-    padding: 6rem 3.5rem 1.5rem;
     height: 100vh;
+    padding: 6rem 3.5rem 1.5rem;
     background-color: var(--c-primary-200);
-    transition: right 0.5s ease;
+    transition: transform 0.25s ease-in-out;
+    transform: translateX(100%);
+    will-change: transform;
 
     &.open {
-      right: 0;
+      transform: none;
     }
 
     @include bp(med) {
       position: revert;
+      height: revert;
       padding: revert;
       background-color: revert;
-      right: revert;
-      height: revert;
+      transform: revert;
+      will-change: revert;
     }
   }
+}
 
-  &__list {
+.navigation {
+  &__menu {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -90,9 +95,31 @@
     display: inline-block;
 
     @include bp(med) {
-      & + & {
+      + li {
         margin-left: 1.5rem;
       }
+    }
+  }
+}
+
+.navlink {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+
+.navbar {
+  .navlink {
+    --font-weight: 700;
+    --c: var(--c-neutral-300);
+    padding: 0.5em 0.5em;
+    font-size: 1.25rem;
+
+    @include bp(med) {
+      --c: var(--c-neutral-700);
+      --c-hfa: var(--c-neutral-900);
+      padding: revert;
     }
   }
 }

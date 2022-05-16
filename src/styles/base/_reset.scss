@@ -1,12 +1,6 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-  line-height: 1.6;
-  text-rendering: optimizeSpeed;
-  display: grid;
-  min-height: 100vh;
-}
 
 :focus-visible {
   outline: 0.25rem dotted var(--c-primary-300);

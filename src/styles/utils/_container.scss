@@ -1,8 +1,12 @@
 @use '../abstracts' as *;
 
 %container {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: var(--gap, 1rem);
+  padding-right: var(--gap, 1rem);
+
+  > * {
+    grid-column: var(--grid-column);
+  }
 
   @include bp(med) {
     display: grid;
@@ -12,28 +16,20 @@
       2fr
       1fr;
   }
-
-  @include bp(large) {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-  }
-
-  @include bp(mega) {
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
 
 .container {
   @extend %container;
+
   > * {
-    grid-column: 2 / span 2;
+    --grid-column: 2 / span 2;
   }
 
   &--full {
     @extend %container;
+
     > * {
-      grid-column: 1 / span 4;
+      --grid-column: 1 / -1;
     }
   }
 }

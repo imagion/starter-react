@@ -6,6 +6,9 @@ export default defineConfig(({ command }) => {
   if (command === 'serve') {
     return {
       plugins: [react()],
+      css: {
+        devSourcemap: true,
+      },
     }
   } else {
     return {
