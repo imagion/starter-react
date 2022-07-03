@@ -18,9 +18,9 @@ $stack-mono: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
 
 // prettier-ignore
 $font-families: (
-  'sans': list.append($custom-sans, $stack-sans, $separator: comma),
-  // 'serif': list.append($custom-serif, $stack-serif, $separator: comma),
-  // 'mono': list.append($custom-mono, $stack-mono, $separator: comma)
+  'sans': list.join($custom-sans, $stack-sans, $separator: comma),
+  // 'serif': list.join($custom-serif, $stack-serif, $separator: comma),
+  // 'mono': list.join($custom-mono, $stack-mono, $separator: comma)
 );
 
 // prettier-ignore

@@ -8,12 +8,10 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-        <div className='page-wrapper'>
-          <Navbar />
-          <Routes>
-            <Route path='/' element={<Home />} />
-          </Routes>
-        </div>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
       </BrowserRouter>
     </>
   )

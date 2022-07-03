@@ -3,17 +3,22 @@
 // Root CSS custom properties
 // ==========
 
+// Map Cycles
+// ----------
 :root {
+  // colors cycle
   @each $color, $shade in $colors {
     @each $prop, $value in $shade {
-      --c-#{$color}-#{$prop}: #{$value};
+      --clr-#{$color}-#{$prop}: #{$value};
     }
   }
 
+  // font-family cycle
   @each $family, $value in $font-families {
     --ff-#{$family}: #{$value};
   }
 
+  // font-size cycle
   @each $screen-size, $property in $type-scale {
     @if $screen-size == small {
       @each $prop, $value in $property {

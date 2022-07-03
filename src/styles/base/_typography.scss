@@ -1,20 +1,20 @@
 @use '../abstracts' as *;
-@use 'sass:map';
 
 // Base Typography Declarations
 // ===============
 
+// TODO: find a better way to use font variations
 * {
   // prettier-ignore
   font-variation-settings:
-  'wght' var(--font-weight, 375),
-  'wdth' var(--font-width, 100);
+    'wght' var(--font-weight, 375),
+    'wdth' var(--font-width, 100);
 }
 
 body {
   font-family: var(--ff-sans);
   font-size: var(--fs-400);
-  color: var(--c-neutral-700);
+  color: var(--text-primary, var(--clr-grey-800));
   line-height: 1.6;
   text-rendering: optimizeSpeed;
 }
@@ -25,7 +25,7 @@ h3,
 h4 {
   --font-width: 80;
   --font-weight: 700;
-  color: var(--c-neutral-800);
+  color: var(--text-headings, var(--clr-grey-800));
   line-height: 1.1;
 }
 
@@ -58,12 +58,12 @@ strong {
 
 a {
   --font-weight: 500;
-  color: var(--c, var(--c-primary-300));
+  color: var(--link-color, var(--clr-primary-500));
 
   &:hover,
   &:focus,
   &:active {
-    color: var(--c-hfa, var(--c-primary-400));
+    color: var(--link-color-hover, var(--clr-primary-700));
   }
 }
 

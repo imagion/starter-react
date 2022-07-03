@@ -1,5 +1,8 @@
 @use '../abstracts' as *;
 
+// Base Container Layout
+// ==========
+
 %container {
   padding-left: var(--gap, 1rem);
   padding-right: var(--gap, 1rem);
