@@ -3,42 +3,24 @@
 // Typography composables
 // ===============
 
+// Font Families
+// ----------
+
 $custom-sans: 'Open Sans';
-$stack-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
-  Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+$stack-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+  'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 $custom-serif: null;
-$stack-serif: Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida,
-  'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif;
+$stack-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
 $custom-mono: null;
-$stack-mono: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
-  'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
-  'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+$stack-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  'Liberation Mono', 'Courier New', monospace;
 
 // prettier-ignore
 $font-families: (
   'sans': list.join($custom-sans, $stack-sans, $separator: comma),
   // 'serif': list.join($custom-serif, $stack-serif, $separator: comma),
   // 'mono': list.join($custom-mono, $stack-mono, $separator: comma)
-);
-
-// prettier-ignore
-$type-scale: (
-  small: (
-    300: 1rem,
-    400: 1.125rem,
-    500: 1.563rem,
-    600: 1.953rem,
-    700: 2.441rem,
-    800: 3.052rem,
-  ),
-  wide: (
-    300: 1rem,
-    400: 1.25rem,
-    500: 2rem,
-    600: 2.827rem,
-    700: 4rem,
-    800: 5.653rem,
-  ),
 );
