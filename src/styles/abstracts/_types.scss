@@ -5,7 +5,6 @@
 
 // Font Families
 // ----------
-
 $custom-sans: 'Open Sans';
 $stack-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
   'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
@@ -23,4 +22,16 @@ $font-families: (
   'sans': list.join($custom-sans, $stack-sans, $separator: comma),
   // 'serif': list.join($custom-serif, $stack-serif, $separator: comma),
   // 'mono': list.join($custom-mono, $stack-mono, $separator: comma)
+);
+
+// Type Scale
+// ----------
+// prettier-ignore
+$type-scale: (
+  300: clamp(0.94rem, 0.17vw + 0.89rem, 1.05rem), // small
+  400: clamp(1.13rem, 0.29vw + 1.05rem, 1.31rem), // base
+  500: clamp(1.35rem, 0.45vw + 1.24rem, 1.64rem), // h4
+  600: clamp(1.62rem, 0.66vw + 1.45rem, 2.05rem), // h3
+  700: clamp(1.94rem, 0.95vw + 1.71rem, 2.56rem), // h2
+  800: clamp(2.33rem, 1.34vw + 2rem, 3.2rem),     // h1
 );

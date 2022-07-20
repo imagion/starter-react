@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import purgecss from '@fullhuman/postcss-purgecss'
 
@@ -12,7 +12,7 @@ export default defineConfig(({ command }) => {
     }
   } else {
     return {
-      plugins: [react()],
+      plugins: [react(), splitVendorChunkPlugin()],
       css: {
         postcss: {
           plugins: [
@@ -20,6 +20,15 @@ export default defineConfig(({ command }) => {
               content: ['./**/*.html', './src/**/*jsx', './src/**/*js '],
             }),
           ],
+        },
+      },
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              vendor: ['react', 'react-router-dom', 'react-dom'],
+            },
+          },
         },
       },
     }

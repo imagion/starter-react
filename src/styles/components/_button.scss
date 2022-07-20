@@ -1,18 +1,16 @@
-@use '../abstracts' as *;
-
 // Button styles
 // ==========
 
-%btn {
+.btn {
+  --font-weight: 700;
   display: inline-block;
   padding: 0.95em 1.75em 0.85em;
-  background-color: var(--button-primary-background, var(--clr-primary-800));
-  border: 2px solid var(--button-primary-background, var(--clr-primary-800));
+  background-color: var(--button-background);
+  border: 2px solid var(--button-background);
   box-shadow: 0 0.125em 0.5em rgb(0 0 0 / 0.15);
   font-family: var(--ff-sans);
   font-size: var(--fs-300);
-  font-weight: 700;
-  color: var(--button-primary-color, var(--clr-common-white));
+  color: var(--button-color);
   line-height: 1;
   white-space: nowrap;
   text-transform: uppercase;
@@ -26,16 +24,8 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: var(
-      --button-primary-background-hover,
-      var(--clr-primary-900)
-    );
-    border: 2px solid
-      var(--button-primary-background-hover, var(--clr-primary-900));
-    color: var(--button-primary-color-hover, var(--clr-common-white));
+    background-color: var(--button-background-hover);
+    border: 2px solid var(--button-background-hover);
+    color: var(--button-color-hover);
   }
-}
-
-.btn {
-  @extend %btn;
 }
